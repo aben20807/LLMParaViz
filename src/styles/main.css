@@ -1,0 +1,239 @@
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #7c3aed;
+  --panel-bg: #ffffff;
+  --control-bg: #f8fafc;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --border-color: #d1d5db;
+  --slider-track: #cbd5e1;
+  --tp-color: #dc2626;
+  --dp-color: #2563eb;
+  --ep-color: #059669;
+  --pp-color: #d97706;
+  --cp-color: #7c3aed;
+  --fsdp-color: #db2777;
+  
+  /* Font sizes - base 16px */
+  --font-xs: 0.8125rem;    /* 13px */
+  --font-sm: 0.875rem;     /* 14px */
+  --font-base: 1rem;       /* 16px */
+  --font-lg: 1.125rem;     /* 18px */
+  --font-xl: 1.25rem;      /* 20px */
+  --font-2xl: 1.5rem;      /* 24px */
+  --font-3xl: 2rem;        /* 32px */
+  
+  /* Line heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgba(79, 70, 229, 0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #818cf8;
+    --secondary-color: #a78bfa;
+    --panel-bg: #1f2937;
+    --control-bg: #374151;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --border-color: #4b5563;
+    --slider-track: #4b5563;
+    --focus-ring: 0 0 0 3px rgba(129, 140, 248, 0.5);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: var(--font-base);
+  line-height: var(--leading-normal);
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+  }
+}
+
+/* Improve focus visibility for accessibility */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Ensure buttons and inputs are accessible */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 12px 0 0 0;
+  color: var(--text-secondary);
+  font-size: var(--font-lg);
+  line-height: var(--leading-relaxed);
+}
+
+.main-content {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: auto auto;
+  }
+  
+  .main-content > *:first-child {
+    grid-row: 1 / 3;
+  }
+  
+  .visualization-area {
+    grid-column: 2;
+  }
+}
+
+.visualization-area {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer {
+  text-align: center;
+  padding: 32px 24px;
+  margin-top: 40px;
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+  border-top: 1px solid var(--border-color);
+}
+
+.footer p {
+  margin: 0 0 6px 0;
+}
+
+.footer p:last-child {
+  margin-bottom: 0;
+}
+
+.footer-credit {
+  font-size: var(--font-sm);
+}
+
+.footer-credit strong {
+  color: var(--text-primary);
+}
+
+.footer-disclaimer {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+.footer a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer a:hover {
+  color: var(--secondary-color);
+}
+
+.footer a:focus-visible {
+  border-radius: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--control-bg);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+}
+
+/* Transitions */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
