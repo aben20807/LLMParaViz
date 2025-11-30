@@ -74,4 +74,4 @@ Apache 2.0 License
 ## Acknowledgements
 
 - Built with Vue 3, vite, and modern web technologies
-- GitHub Copilot implemented most of the features
+- GitHub Copilot (Claude Opus 4.5) implemented most of the features
